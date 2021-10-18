@@ -4,7 +4,7 @@ import Logo from "../../../images/Logo.png";
 
 const Header = () => {
   return (
-    <header className="shadow-md">
+    <header className="shadow-md fixed w-full bg-white opacity-90">
       <nav className="flex justify-between items-center md:container mx-auto py-3">
         {/* Header Left side */}
         <div className="flex items-center">

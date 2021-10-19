@@ -12,24 +12,25 @@ firebaseInitialization();
 const useFirebase = () => {
   const auth = getAuth();
   const [patient, setPatient] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
   // Auth observer
   useEffect(() => {
+    setIsLoading(true);
     onAuthStateChanged(auth, (user) => {
       if (user?.email) {
         setPatient(user);
+        setIsLoading(false);
       } else {
         setPatient({});
+        setIsLoading(false);
       }
     });
   }, []);
   // Google sign in
   const googleSignIn = () => {
+    setIsLoading(true);
     const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider)
-      .then((res) => {
-        setPatient(res.user);
-      })
-      .catch((error) => console.log(error.message));
+    return signInWithPopup(auth, provider);
   };
   //   sign out
   const logOut = () => {
@@ -37,8 +38,10 @@ const useFirebase = () => {
   };
   return {
     patient,
+    setPatient,
     googleSignIn,
     logOut,
+    isLoading,
   };
 };
 

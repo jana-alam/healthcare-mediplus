@@ -1,13 +1,20 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import useAuth from "../../../../hooks/useAuth";
 
 const Login = () => {
-  const { googleSignIn } = useAuth();
+  const { googleSignIn, setPatient } = useAuth();
+  const location = useLocation();
+  const history = useHistory();
+  const redirected_url = location?.state?.from || "/home";
 
   const handleGoogleLogin = () => {
-    googleSignIn();
+    googleSignIn().then((res) => {
+      setPatient(res.user);
+      history.push(redirected_url);
+    });
   };
   const {
     register,

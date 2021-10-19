@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Home from "./Pages/Home/Home/Home";
+import Register from "./Pages/Home/Login/Register/Register";
 import Login from "./Pages/Home/Login/Login/Login";
 import NotFound from "./Pages/NotFound/NotFound";
 import ServiceDetails from "./Pages/ServiceDetails/ServiceDetails/ServiceDetails";
@@ -21,6 +22,9 @@ function App() {
           </Route>
           <Route path="/login">
             <Login></Login>
+          </Route>
+          <Route path="/register">
+            <Register></Register>
           </Route>
           <Route path="/services/:id">
             <ServiceDetails></ServiceDetails>

@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const Register = () => {
   const {
     register,
     handleSubmit,
@@ -13,9 +13,15 @@ const Login = () => {
   return (
     <div className="py-20 md:w-1/4 mx-auto">
       <h2 className="my-6 text-center text-bold text-4xl text-pink-600">
-        Please Login
+        Please Sign Up Here
       </h2>
       <form onSubmit={handleSubmit(onSubmit)} className=" flex flex-col">
+        <input
+          className="px-3 py-3 bg-gray-100 placeholder-gray-600 text-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent"
+          placeholder="Your Name"
+          {...register("name", { required: true })}
+        />
+        {errors.name && <span className="text-red-600">*Name is required</span>}
         <input
           className="px-3 py-3 bg-gray-100 placeholder-gray-600 text-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent mt-4"
           placeholder="john@abraham.com"
@@ -77,13 +83,13 @@ const Login = () => {
       </div>
 
       <p className=" text-xl">
-        New to this site!{" "}
-        <Link className="text-pink-700" to="/register">
-          Please Register
+        Already registered!{" "}
+        <Link className="text-pink-700" to="/login">
+          Login
         </Link>
       </p>
     </div>
   );
 };
 
-export default Login;
+export default Register;

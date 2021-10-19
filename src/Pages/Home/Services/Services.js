@@ -4,7 +4,7 @@ import SingleService from "../SingleService/SingleService";
 const Services = () => {
   const { services } = useServices();
   return (
-    <div className="md:container mx-auto ">
+    <div className="md:container mx-auto pb-12">
       <h4 className="text-2xl mb-10">Our Services</h4>
       <h2 className="text-6xl">What services</h2>
       <h2 className="text-6xl font-bold text-pink-600 mt-4">Mediplus Offer?</h2>

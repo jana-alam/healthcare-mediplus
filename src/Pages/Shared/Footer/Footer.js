@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useServices from "../../../hooks/useServices";
-import footerLogo from "../../../images/Logo.png";
 const Footer = () => {
   const { services } = useServices();
   console.log(services);
@@ -17,7 +16,7 @@ const Footer = () => {
           </address>
         </div>
 
-        <div className="text-white flex flex-col justify-center">
+        <div className="text-white grid grid-cols-1 place-items-start">
           {services.map((service) => (
             <Link
               className="hover:text-pink-600"
@@ -27,7 +26,7 @@ const Footer = () => {
             </Link>
           ))}
         </div>
-        <div className="text-white flex flex-col justify-center ">
+        <div className="text-white flex flex-col justify-center items-start">
           <Link className="hover:text-pink-600" to="/home">
             Home
           </Link>

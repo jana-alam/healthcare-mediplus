@@ -5,11 +5,11 @@ import Logo from "../../../images/Logo.png";
 const Header = () => {
   return (
     <header className="shadow-md fixed w-full bg-white opacity-90">
-      <nav className="flex justify-between items-center md:container mx-auto py-3">
+      <nav className="flex justify-between items-center md:container mx-auto py-3 px-3 sm:px-0">
         {/* Header Left side */}
         <div className="flex items-center">
           <img src={Logo} alt="Logo" />
-          <div className="ml-5">
+          <div className="ml-5 hidden sm:block">
             <NavLink
               activeStyle={{
                 borderBottom: "2px solid #db2777",

@@ -4,7 +4,7 @@ import "./Banner.css";
 
 const Banner = () => {
   return (
-    <div className=" pt-40 px-8  banner-section min-h-screen">
+    <div className=" lg:pt-32 lg:py-20 px-8  banner-section lg:min-h-screen">
       <h1 className="text-5xl text-gray-300 font-bold">
         <span className="text-8xl text-pink-600">MediPlus</span> <br />
         Power To Heal

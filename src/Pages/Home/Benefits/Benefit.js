@@ -2,7 +2,7 @@ import React from "react";
 
 const Benefit = () => {
   return (
-    <div className="w-10/12 mx-auto grid grid-cols-4 -my-8 text-center mb-20">
+    <div className="w-10/12 mx-auto grid grid-cols-4 -my-8 text-center mb-20 shadow-2xl">
       <div className="bg-red-400 text-white px-4 py-6">
         <h3 className="font-semibold text-2xl mb-3">24 Hour Support</h3>
         <p className="text-sm">

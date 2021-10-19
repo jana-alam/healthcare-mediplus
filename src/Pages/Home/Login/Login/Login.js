@@ -1,8 +1,14 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import useAuth from "../../../../hooks/useAuth";
 
 const Login = () => {
+  const { googleSignIn } = useAuth();
+
+  const handleGoogleLogin = () => {
+    googleSignIn();
+  };
   const {
     register,
     handleSubmit,
@@ -39,10 +45,14 @@ const Login = () => {
           className="px-3 py-3 bg-pink-600 text-white my-4 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent"
         />
       </form>
+      {/* Google Login */}
       <hr className="w-1/4 mx-auto border-b-1 border-pink-900 " />
       <div className="my-2 text-center ">
         <h3 className="font-bold text-lg text-pink-600">Or Login With</h3>
-        <button className=" flex items-center justify-center w-full px-3 py-2 bg-pink-600 my-4 text-white focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent">
+        <button
+          onClick={handleGoogleLogin}
+          className=" flex items-center justify-center w-full px-3 py-2 bg-pink-600 my-4 text-white focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
@@ -53,18 +63,18 @@ const Login = () => {
           >
             <g
               fill="none"
-              fill-rule="nonzero"
+              fillRule="nonzero"
               stroke="none"
-              stroke-width="1"
-              stroke-linecap="butt"
-              stroke-linejoin="miter"
-              stroke-miterlimit="10"
-              stroke-dasharray=""
-              stroke-dashoffset="0"
-              font-family="none"
-              font-weight="none"
-              font-size="none"
-              text-anchor="none"
+              strokeWidth="1"
+              strokeLinecap="butt"
+              strokeLinejoin="miter"
+              strokeMiterlimit="10"
+              strokeDasharray=""
+              strokeDashoffset="0"
+              fontFamily="none"
+              fontWeight="none"
+              fontSize="none"
+              textAnchor="none"
             >
               <path d="M0,172v-172h172v172z" fill="none"></path>
               <g id="original-icon" fill="#ffffff">

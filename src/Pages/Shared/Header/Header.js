@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import Logo from "../../../images/Logo.png";
-import MobileMenu from "../MobileMenu/MobileMenu";
+import useAuth from "../../../hooks/useAuth";
 
 const Header = () => {
+  const { patient, logOut } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const handleMobileMenu = () => {
     setIsOpen(!isOpen);
+  };
+  const handleLogOut = () => {
+    logOut();
   };
 
   return (
@@ -42,6 +45,7 @@ const Header = () => {
               </svg>
             </button>
           </div>
+          {/* Mobile button end*/}
           <h2 className="text-4xl text-pink-600 font-semibold">MediPlus</h2>
           <div className="ml-5 hidden md:block">
             <NavLink
@@ -75,14 +79,36 @@ const Header = () => {
         </div>
 
         {/* Header right side */}
-        <div className="space-x-6">
-          <NavLink to="/login">Login</NavLink>
-          <NavLink
-            className="px-4 py-2 bg-pink-600 text-white rounded-md"
-            to="/register"
-          >
-            Register
-          </NavLink>
+        <div>
+          {patient?.email ? (
+            <div className="space-x-6">
+              <span>Hi! {patient?.displayName}</span>
+              <button
+                onClick={handleLogOut}
+                type="button"
+                className="px-4 py-2 bg-pink-600 text-white rounded-md"
+              >
+                Log Out
+              </button>
+            </div>
+          ) : (
+            <div className="space-x-6">
+              <NavLink
+                activeStyle={{
+                  borderBottom: "2px solid #db2777",
+                }}
+                to="/login"
+              >
+                Login
+              </NavLink>
+              <NavLink
+                className="px-4 py-2 bg-pink-600 text-white rounded-md"
+                to="/register"
+              >
+                Register
+              </NavLink>
+            </div>
+          )}
         </div>
         {/* Mobile Menus */}
         <div className="absolute top-full left-0 w-full">
@@ -102,6 +128,7 @@ const Header = () => {
             </Link>
           </ul>
         </div>
+        {/* Mobile Menus ends*/}
       </nav>
     </header>
   );

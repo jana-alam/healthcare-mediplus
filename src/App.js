@@ -7,10 +7,11 @@ import NotFound from "./Pages/NotFound/NotFound";
 import ServiceDetails from "./Pages/ServiceDetails/ServiceDetails/ServiceDetails";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Header from "./Pages/Shared/Header/Header";
+import AuthProvider from "./context/AuthProvider";
 
 function App() {
   return (
-    <>
+    <AuthProvider>
       <Router>
         <Header></Header>
         <Switch>
@@ -35,7 +36,7 @@ function App() {
         </Switch>
         <Footer></Footer>
       </Router>
-    </>
+    </AuthProvider>
   );
 }
 

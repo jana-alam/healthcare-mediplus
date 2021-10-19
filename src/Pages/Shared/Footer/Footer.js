@@ -19,6 +19,7 @@ const Footer = () => {
         <div className="text-white grid grid-cols-1 place-items-start">
           {services.map((service) => (
             <Link
+              key={`footer-${service.id}`}
               className="hover:text-pink-600"
               to={`/services/${service.id}`}
             >

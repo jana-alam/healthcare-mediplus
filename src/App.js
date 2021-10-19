@@ -1,9 +1,11 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Header from "./Pages/Home/Header/Header";
+
 import Home from "./Pages/Home/Home/Home";
 import Login from "./Pages/Home/Login/Login/Login";
 import NotFound from "./Pages/NotFound/NotFound";
 import ServiceDetails from "./Pages/ServiceDetails/ServiceDetails/ServiceDetails";
+import Footer from "./Pages/Shared/Footer/Footer";
+import Header from "./Pages/Shared/Header/Header";
 
 function App() {
   return (
@@ -27,6 +29,7 @@ function App() {
             <NotFound></NotFound>
           </Route>
         </Switch>
+        <Footer></Footer>
       </Router>
     </>
   );

@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
 import useServices from "../../../hooks/useServices";
 import SingleService from "../SingleService/SingleService";
 
 const Services = () => {
-  const services = useServices();
+  const { services } = useServices();
   return (
     <div className="md:container mx-auto ">
       <h4 className="text-2xl mb-10">Our Services</h4>

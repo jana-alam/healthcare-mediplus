@@ -10,7 +10,7 @@ const useServices = () => {
       });
   }, []);
 
-  return services;
+  return { services };
 };
 
 export default useServices;

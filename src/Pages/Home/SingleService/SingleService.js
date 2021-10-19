@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const SingleService = ({ service }) => {
   const { id, title, shortDescription, imageUrl } = service;
@@ -22,7 +22,7 @@ const SingleService = ({ service }) => {
           onClick={serviceDetails}
           className="px-3 py-2 ml-4 bg-gradient-to-r from-pink-600 to-pink-700 font-semibold  cursor-pointer my-4 rounded-lg text-white hover:from-pink-800 hover:to-pink-700"
         >
-          Book An Appointment
+          Learn More Details
         </button>
       </div>
     </div>

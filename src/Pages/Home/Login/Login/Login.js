@@ -1,11 +1,11 @@
-import React from "react";
-import { useForm } from "react-hook-form";
+import React  from "react";
+
 import { Link } from "react-router-dom";
 import { useLocation, useHistory } from "react-router-dom";
 import useAuth from "../../../../hooks/useAuth";
 
 const Login = () => {
-  const { googleSignIn, setPatient } = useAuth();
+  const { googleSignIn, setPatient, emailSignIn,setEmail, setPassword } = useAuth();
   const location = useLocation();
   const history = useHistory();
   const redirected_url = location?.state?.from || "/home";
@@ -16,36 +16,32 @@ const Login = () => {
       history.push(redirected_url);
     });
   };
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => console.log(data);
+
+  const handleLogIn =(e)=>{
+    e.preventDefault();
+    emailSignIn().then(()=>{
+      history.push(redirected_url)
+    })
+  }
+ 
 
   return (
     <div className="py-20 md:w-1/4 mx-auto">
       <h2 className="my-6 text-center text-bold text-4xl text-pink-600">
         Please Login
       </h2>
-      <form onSubmit={handleSubmit(onSubmit)} className=" flex flex-col">
-        <input
-          className="px-3 py-3 bg-gray-100 placeholder-gray-600 text-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent mt-4"
+      <form onSubmit={handleLogIn} className=" flex flex-col">
+        <input onChange={(e) => setEmail(e.target.value)} type="text"
+          className="px-3 py-3 bg-gray-100 placeholder-gray-400 text-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent mt-4"
           placeholder="john@abraham.com"
-          {...register("email", { required: true })}
         />
-        {errors.email && (
-          <span className="text-red-600">*Email is required</span>
-        )}
-        <input
-          className="px-3 py-3 bg-gray-100 placeholder-gray-600 text-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent mt-4"
+        
+        <input onChange={(e) => setPassword(e.target.value)} type="password"
+          className="px-3 py-3 bg-gray-100 placeholder-gray-400 text-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent mt-4"
           placeholder="*******"
-          {...register("password", { required: true })}
         />
 
-        {errors.password && (
-          <span className="text-red-600">*Password is required</span>
-        )}
+        
 
         <input
           type="submit"

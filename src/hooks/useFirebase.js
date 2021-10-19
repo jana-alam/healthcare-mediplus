@@ -4,6 +4,9 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  updateProfile,
   signOut,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
@@ -13,6 +16,9 @@ const useFirebase = () => {
   const auth = getAuth();
   const [patient, setPatient] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   // Auth observer
   useEffect(() => {
     setIsLoading(true);
@@ -32,6 +38,22 @@ const useFirebase = () => {
     const provider = new GoogleAuthProvider();
     return signInWithPopup(auth, provider);
   };
+  // create User
+
+  const createUser = () => {
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
+  const updateDisplayName = () => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+    });
+  };
+
+  // emailsign in
+
+  const emailSignIn = () => {
+    return signInWithEmailAndPassword(auth, email, password);
+  };
   //   sign out
   const logOut = () => {
     signOut(auth);
@@ -41,6 +63,12 @@ const useFirebase = () => {
     setPatient,
     googleSignIn,
     logOut,
+    setName,
+    setEmail,
+    setPassword,
+    updateDisplayName,
+    emailSignIn,
+    createUser,
     isLoading,
   };
 };

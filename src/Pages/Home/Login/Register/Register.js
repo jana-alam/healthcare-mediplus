@@ -1,44 +1,49 @@
 import React from "react";
-import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import useAuth from "../../../../hooks/useAuth";
 
 const Register = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const { googleSignIn, setName, setEmail, setPassword, updateDisplayName } =
+    useAuth();
+  const { createUser } = useAuth();
+  const history = useHistory();
 
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    createUser().then((res) => {
+      updateDisplayName().then(() => {
+        window.location.reload();
+      });
+      history.push("/");
+    });
+  };
+  const handleGoogle = () => {
+    googleSignIn().then(() => {
+      history.push("/home");
+    });
+  };
   return (
     <div className="py-20 md:w-1/4 mx-auto">
       <h2 className="my-6 text-center text-bold text-4xl text-pink-600">
         Please Sign Up Here
       </h2>
-      <form onSubmit={handleSubmit(onSubmit)} className=" flex flex-col">
+      <form onSubmit={handleSignUp} className=" flex flex-col">
         <input
+          onChange={(e) => setName(e.target.value)}
           className="px-3 py-3 bg-gray-100 placeholder-gray-600 text-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent"
-          placeholder="Your Name"
-          {...register("name", { required: true })}
+          placeholder="Your Name" type="text"
         />
-        {errors.name && <span className="text-red-600">*Name is required</span>}
         <input
+          onChange={(e) => setEmail(e.target.value)}
           className="px-3 py-3 bg-gray-100 placeholder-gray-600 text-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent mt-4"
-          placeholder="john@abraham.com"
-          {...register("email", { required: true })}
+          placeholder="john@abraham.com" type="email"
+          required
         />
-        {errors.email && (
-          <span className="text-red-600">*Email is required</span>
-        )}
         <input
+          onChange={(e) => setPassword(e.target.value)}
           className="px-3 py-3 bg-gray-100 placeholder-gray-600 text-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent mt-4"
-          placeholder="*******"
-          {...register("password", { required: true })}
+          placeholder="*******" type="password"
         />
-
-        {errors.password && (
-          <span className="text-red-600">*Password is required</span>
-        )}
 
         <input
           type="submit"
@@ -48,7 +53,10 @@ const Register = () => {
       <hr className="w-1/4 mx-auto border-b-1 border-pink-900 " />
       <div className="my-2 text-center ">
         <h3 className="font-bold text-lg text-pink-600">Or Login With</h3>
-        <button className=" flex items-center justify-center w-full px-3 py-2 bg-pink-600 my-4 text-white focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent">
+        <button
+          onClick={handleGoogle}
+          className=" flex items-center justify-center w-full px-3 py-2 bg-pink-600 my-4 text-white focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
@@ -59,18 +67,18 @@ const Register = () => {
           >
             <g
               fill="none"
-              fill-rule="nonzero"
+              fillRule="nonzero"
               stroke="none"
-              stroke-width="1"
-              stroke-linecap="butt"
-              stroke-linejoin="miter"
-              stroke-miterlimit="10"
-              stroke-dasharray=""
-              stroke-dashoffset="0"
-              font-family="none"
-              font-weight="none"
-              font-size="none"
-              text-anchor="none"
+              strokeWidth="1"
+              strokeLinecap="butt"
+              strokeLinejoin="miter"
+              strokeMiterlimit="10"
+              strokeDasharray=""
+              strokeDashoffset="0"
+              fontFamily="none"
+              fontWeight="none"
+              fontSize="none"
+              textAnchor="none"
             >
               <path d="M0,172v-172h172v172z" fill="none"></path>
               <g id="original-icon" fill="#ffffff">

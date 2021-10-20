@@ -31,23 +31,26 @@ const Register = () => {
         <input
           onChange={(e) => setName(e.target.value)}
           className="px-3 py-3 bg-gray-100 placeholder-gray-600 text-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent"
-          placeholder="Your Name" type="text"
+          placeholder="Your Name"
+          type="text"
         />
         <input
           onChange={(e) => setEmail(e.target.value)}
           className="px-3 py-3 bg-gray-100 placeholder-gray-600 text-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent mt-4"
-          placeholder="john@abraham.com" type="email"
+          placeholder="john@abraham.com"
+          type="email"
           required
         />
         <input
           onChange={(e) => setPassword(e.target.value)}
           className="px-3 py-3 bg-gray-100 placeholder-gray-600 text-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent mt-4"
-          placeholder="*******" type="password"
+          placeholder="*******"
+          type="password"
         />
 
         <input
           type="submit"
-          className="px-3 py-3 bg-pink-600 text-white my-4 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent"
+          className="cursor-pointer px-3 py-3 bg-pink-600 text-white my-4 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent"
         />
       </form>
       <hr className="w-1/4 mx-auto border-b-1 border-pink-900 " />
@@ -55,7 +58,7 @@ const Register = () => {
         <h3 className="font-bold text-lg text-pink-600">Or Login With</h3>
         <button
           onClick={handleGoogle}
-          className=" flex items-center justify-center w-full px-3 py-2 bg-pink-600 my-4 text-white focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent"
+          className="flex items-center justify-center w-full px-3 py-2 bg-pink-600 my-4 text-white focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -4,13 +4,13 @@ import Home from "./Pages/Home/Home/Home";
 import Register from "./Pages/Home/Login/Register/Register";
 import Login from "./Pages/Home/Login/Login/Login";
 import NotFound from "./Pages/NotFound/NotFound";
-import ServiceDetails from "./Pages/ServiceDetails/ServiceDetails/ServiceDetails";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Header from "./Pages/Shared/Header/Header";
 import AuthProvider from "./context/AuthProvider";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import AboutUs from "./Pages/AboutUs/AboutUs/AboutUs";
 import AppointMent from "./Pages/AppointMent/AppointMent/AppointMent";
+import ServiceDetails from "./Pages/ServiceDetails/ServiceDetails";
 
 function App() {
   return (
@@ -24,12 +24,12 @@ function App() {
           <Route path="/home">
             <Home></Home>
           </Route>
-          <Route path="/about-us">
+          <PrivateRoute path="/about-us">
             <AboutUs></AboutUs>
-          </Route>
-          <Route path="/appointment">
+          </PrivateRoute>
+          <PrivateRoute path="/appointment">
             <AppointMent></AppointMent>
-          </Route>
+          </PrivateRoute>
           <Route path="/login">
             <Login></Login>
           </Route>

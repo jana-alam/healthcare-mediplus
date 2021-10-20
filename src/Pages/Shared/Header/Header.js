@@ -79,14 +79,14 @@ const Header = () => {
         </div>
 
         {/* Header right side */}
-        <div>
+        <div className="">
           {patient?.email ? (
             <div className="space-x-6">
               <span>Hi! {patient?.displayName}</span>
               <button
                 onClick={handleLogOut}
                 type="button"
-                className="px-4 py-2 bg-pink-600 text-white rounded-md"
+                className=" hidden sm:inline-block px-4 py-2 bg-pink-600 text-white rounded-md"
               >
                 Log Out
               </button>
@@ -102,7 +102,7 @@ const Header = () => {
                 Login
               </NavLink>
               <NavLink
-                className="px-4 py-2 bg-pink-600 text-white rounded-md"
+                className=" hidden sm:inline-block px-4 py-2 bg-pink-600 text-white rounded-md"
                 to="/register"
               >
                 Register
@@ -126,6 +126,20 @@ const Header = () => {
             <Link className="border-b-2" to="/appointment">
               Appointment
             </Link>
+
+            {patient?.email ? (
+              <button
+                onClick={handleLogOut}
+                type="button"
+                className="sm:hidden px-4 py-2 bg-pink-600 text-white rounded-md"
+              >
+                Log Out
+              </button>
+            ) : (
+              <Link className="sm:hidden" to="/register">
+                Register
+              </Link>
+            )}
           </ul>
         </div>
         {/* Mobile Menus ends*/}

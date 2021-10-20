@@ -1,5 +1,5 @@
 import React from "react";
-import Subscribe from "../../Home/Subscribe/Subscribe";
+import Subscribe from "../../Shared/Subscribe/Subscribe";
 import About from "../About/About";
 import Facilities from "../Facilities/Facilities";
 

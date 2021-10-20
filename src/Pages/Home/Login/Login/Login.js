@@ -1,11 +1,12 @@
-import React  from "react";
+import React from "react";
 
 import { Link } from "react-router-dom";
 import { useLocation, useHistory } from "react-router-dom";
 import useAuth from "../../../../hooks/useAuth";
 
 const Login = () => {
-  const { googleSignIn, setPatient, emailSignIn,setEmail, setPassword } = useAuth();
+  const { googleSignIn, setPatient, emailSignIn, setEmail, setPassword } =
+    useAuth();
   const location = useLocation();
   const history = useHistory();
   const redirected_url = location?.state?.from || "/home";
@@ -17,13 +18,12 @@ const Login = () => {
     });
   };
 
-  const handleLogIn =(e)=>{
+  const handleLogIn = (e) => {
     e.preventDefault();
-    emailSignIn().then(()=>{
-      history.push(redirected_url)
-    })
-  }
- 
+    emailSignIn().then(() => {
+      history.push(redirected_url);
+    });
+  };
 
   return (
     <div className="py-20 md:w-1/4 mx-auto">
@@ -31,21 +31,23 @@ const Login = () => {
         Please Login
       </h2>
       <form onSubmit={handleLogIn} className=" flex flex-col">
-        <input onChange={(e) => setEmail(e.target.value)} type="text"
+        <input
+          onChange={(e) => setEmail(e.target.value)}
+          type="text"
           className="px-3 py-3 bg-gray-100 placeholder-gray-400 text-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent mt-4"
           placeholder="john@abraham.com"
         />
-        
-        <input onChange={(e) => setPassword(e.target.value)} type="password"
+
+        <input
+          onChange={(e) => setPassword(e.target.value)}
+          type="password"
           className="px-3 py-3 bg-gray-100 placeholder-gray-400 text-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent mt-4"
           placeholder="*******"
         />
 
-        
-
         <input
           type="submit"
-          className="px-3 py-3 bg-pink-600 text-white my-4 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent"
+          className=" cursor-pointer px-3 py-3 bg-pink-600 text-white my-4 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent"
         />
       </form>
       {/* Google Login */}

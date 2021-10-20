@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 
 const NotFound = () => {
   return (
-    <div className=" text-center ">
+    <div className="text-center mb-8">
       <h2 className="text-pink-600 font-semibold text-5xl pt-20">
         Looks Like you lost!
       </h2>
       <img
-        className="w-6/12 mx-auto"
+        className="w-5/12 mx-auto"
         src="https://i.ibb.co/7NsLvsh/undraw-page-not-found-su7k.png"
         alt=""
       />

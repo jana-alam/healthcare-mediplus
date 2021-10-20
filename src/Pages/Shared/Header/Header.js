@@ -13,7 +13,7 @@ const Header = () => {
   };
 
   return (
-    <header className="shadow-md fixed w-full bg-white">
+    <header className="shadow-md fixed w-full bg-white z-10">
       <nav className="flex justify-between items-center sm:container mx-auto py-3 px-3 sm:px-0">
         {/* Header Left side */}
         <div className="flex items-center relative">
@@ -46,7 +46,9 @@ const Header = () => {
             </button>
           </div>
           {/* Mobile button end*/}
-          <h2 className="text-4xl text-pink-600 font-semibold">MediPlus</h2>
+          <h2 className=" text-2xl md:text-4xl text-pink-600 font-semibold">
+            MediPlus
+          </h2>
           <div className="ml-5 hidden md:block">
             <NavLink
               activeStyle={{

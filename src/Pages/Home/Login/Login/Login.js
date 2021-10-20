@@ -1,35 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
 import { useLocation, useHistory } from "react-router-dom";
 import useAuth from "../../../../hooks/useAuth";
 
 const Login = () => {
+  //auth context
   const { googleSignIn, setPatient, emailSignIn, setEmail, setPassword } =
     useAuth();
+  const [loginError, setLoginError] = useState("");
   const location = useLocation();
   const history = useHistory();
+  // redirected url
   const redirected_url = location?.state?.from || "/home";
-
+  // google log in
   const handleGoogleLogin = () => {
     googleSignIn().then((res) => {
       setPatient(res.user);
       history.push(redirected_url);
     });
   };
-
+  // email password login
   const handleLogIn = (e) => {
     e.preventDefault();
-    emailSignIn().then(() => {
-      history.push(redirected_url);
-    });
+    emailSignIn()
+      .then(() => {
+        history.push(redirected_url);
+      })
+      .catch((error) => {
+        setLoginError(error.message);
+      });
   };
 
   return (
-    <div className="py-20 md:w-1/4 mx-auto">
+    <div className="py-20  w-10/12 sm:w-6/12 md:w-4/12 lg:w-1/4 mx-auto">
       <h2 className="my-6 text-center text-bold text-4xl text-pink-600">
         Please Login
       </h2>
+      {/* Login Form */}
       <form onSubmit={handleLogIn} className=" flex flex-col">
         <input
           onChange={(e) => setEmail(e.target.value)}
@@ -37,6 +45,7 @@ const Login = () => {
           className="px-3 py-3 bg-gray-100 placeholder-gray-400 text-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent mt-4"
           placeholder="john@abraham.com"
         />
+        {loginError && <span className="text-red-600">{loginError}</span>}
 
         <input
           onChange={(e) => setPassword(e.target.value)}
@@ -44,7 +53,7 @@ const Login = () => {
           className="px-3 py-3 bg-gray-100 placeholder-gray-400 text-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent mt-4"
           placeholder="*******"
         />
-
+        {/* Submit Button */}
         <input
           type="submit"
           className=" cursor-pointer px-3 py-3 bg-pink-600 text-white my-4 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent"
@@ -54,6 +63,7 @@ const Login = () => {
       <hr className="w-1/4 mx-auto border-b-1 border-pink-900 " />
       <div className="my-2 text-center ">
         <h3 className="font-bold text-lg text-pink-600">Or Login With</h3>
+        {/* Google login button */}
         <button
           onClick={handleGoogleLogin}
           className=" flex items-center justify-center w-full px-3 py-2 bg-pink-600 my-4 text-white focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent"
@@ -92,7 +102,7 @@ const Login = () => {
       </div>
 
       <p className=" text-xl">
-        New to this site!{" "}
+        New to this site! {/* Register link */}
         <Link className="text-pink-700" to="/register">
           Please Register
         </Link>

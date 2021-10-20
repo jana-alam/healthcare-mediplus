@@ -6,7 +6,7 @@ const Footer = () => {
   console.log(services);
   return (
     <footer>
-      <div className="grid grid-cols-3 gap-4 bg-gray-900 px-12 py-6">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-gray-900 px-12 py-6">
         <div className="flex flex-col justify-center">
           <h2 className="text-3xl text-pink-600 font-semibold">MediPlus</h2>
           <address className="text-gray-200">

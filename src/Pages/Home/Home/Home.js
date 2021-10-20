@@ -3,7 +3,7 @@ import Banner from "../Banner/Banner";
 import Benefit from "../Benefits/Benefit";
 import Services from "../Services/Services";
 import Subscribe from "../../Shared/Subscribe/Subscribe";
-import Teams from "../Teams/Teams";
+import OurDoctors from "../OurDoctors/OurDoctors";
 
 const Home = () => {
   return (
@@ -11,7 +11,7 @@ const Home = () => {
       <Banner></Banner>
       <Benefit></Benefit>
       <Services></Services>
-      <Teams></Teams>
+      <OurDoctors></OurDoctors>
       <Subscribe></Subscribe>
     </div>
   );

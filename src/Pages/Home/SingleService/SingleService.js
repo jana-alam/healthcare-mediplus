@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const SingleService = ({ service }) => {
   const { id, title, shortDescription, imageUrl } = service;
@@ -10,12 +10,14 @@ const SingleService = ({ service }) => {
 
   return (
     <div>
+      {/* Service Image */}
       <img src={imageUrl} alt="Service" className="rounded-lg" />
+      {/* Service INformation */}
       <div className="rounded-lg px-4 pb-4">
         <h3 className="text-2xl  my-4 font-semibold border-b-2 text-pink-800">
           {title}
         </h3>
-        <p className="mt-4 text-justify text-gray-600 h-32">
+        <p className="mt-4 text-justify text-gray-600 h-40 sm:h-32">
           {shortDescription}
         </p>
         <div className="text-right">

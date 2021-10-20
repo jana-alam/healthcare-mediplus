@@ -3,11 +3,12 @@ import { Link, useHistory } from "react-router-dom";
 import useAuth from "../../../../hooks/useAuth";
 
 const Register = () => {
+  // auth context
   const { googleSignIn, setName, setEmail, setPassword, updateDisplayName } =
     useAuth();
   const { createUser } = useAuth();
   const history = useHistory();
-
+  // create new user and redirected to home
   const handleSignUp = (e) => {
     e.preventDefault();
     createUser().then((res) => {
@@ -17,16 +18,18 @@ const Register = () => {
       history.push("/");
     });
   };
+  // login with google
   const handleGoogle = () => {
     googleSignIn().then(() => {
       history.push("/home");
     });
   };
   return (
-    <div className="py-20 md:w-1/4 mx-auto">
+    <div className="py-20  w-10/12 sm:w-6/12 md:w-4/12 lg:w-1/4 mx-auto">
       <h2 className="my-6 text-center text-bold text-4xl text-pink-600">
-        Please Sign Up Here
+        Sign Up
       </h2>
+      {/* registration form */}
       <form onSubmit={handleSignUp} className=" flex flex-col">
         <input
           onChange={(e) => setName(e.target.value)}
@@ -47,7 +50,7 @@ const Register = () => {
           placeholder="*******"
           type="password"
         />
-
+        {/* submit */}
         <input
           type="submit"
           className="cursor-pointer px-3 py-3 bg-pink-600 text-white my-4 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent"
@@ -55,6 +58,7 @@ const Register = () => {
       </form>
       <hr className="w-1/4 mx-auto border-b-1 border-pink-900 " />
       <div className="my-2 text-center ">
+        {/* Google Log in */}
         <h3 className="font-bold text-lg text-pink-600">Or Login With</h3>
         <button
           onClick={handleGoogle}
@@ -94,7 +98,7 @@ const Register = () => {
       </div>
 
       <p className=" text-xl">
-        Already registered!{" "}
+        Already registered! {/* Login */}
         <Link className="text-pink-700" to="/login">
           Login
         </Link>

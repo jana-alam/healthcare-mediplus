@@ -3,10 +3,13 @@ import aboutUs from "../../../images/about-us.jpg";
 
 const About = () => {
   return (
+    // about us
     <div className="pt-10">
-      <div className="grid grid-cols-2 gap-5">
-        <div className="pl-12">
-          <h2 className="text-6xl font-bold text-pink-600 mt-4">About Us</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className=" px-10 md:pl-12">
+          <h2 className="text-4xl md:text-6xl font-bold text-pink-600 mt-4">
+            About Us
+          </h2>
           <p className="text-gray-700 mt-8">
             MediPlus Hospital is the Best Hospital in Bangladesh. We are a 250
             bedded multi-disciplinary tertiary-care Hospital, situated at
@@ -21,6 +24,7 @@ const About = () => {
             of facilities and convenience.
           </p>
         </div>
+        {/* about us image */}
         <img className="" src={aboutUs} alt="about us" />
       </div>
     </div>

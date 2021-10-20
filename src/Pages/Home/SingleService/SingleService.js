@@ -1,8 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const SingleService = ({ service }) => {
   const { id, title, shortDescription, imageUrl } = service;
+  const history = useHistory();
+  const handleService = () => {
+    history.push(`/services/${id}`);
+  };
 
   return (
     <div>
@@ -15,12 +19,12 @@ const SingleService = ({ service }) => {
           {shortDescription}
         </p>
         <div className="text-right">
-          <Link
-            to={`/services/${id}`}
-            className="px-4 py-2 rounded-full text-pink-600 text-base font-bold ml hover:text-pink-500 hover:bg-pink-200"
+          <button
+            onClick={handleService}
+            className="px-4 py-2 rounded-full  text-base font-bold ml text-pink-500 bg-pink-200"
           >
             Learn More...
-          </Link>
+          </button>
         </div>
       </div>
     </div>

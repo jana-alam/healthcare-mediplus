@@ -1,12 +1,9 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const SingleService = ({ service }) => {
   const { id, title, shortDescription, imageUrl } = service;
-  const history = useHistory();
-  const serviceDetails = () => {
-    history.push(`/services/${id}`);
-  };
+
   return (
     <div>
       <img src={imageUrl} alt="Service" className="rounded-lg" />

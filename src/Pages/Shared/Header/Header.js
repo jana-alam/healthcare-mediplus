@@ -13,7 +13,7 @@ const Header = () => {
   };
 
   return (
-    <header className="shadow-md fixed w-full bg-white opacity-90">
+    <header className="shadow-md fixed w-full bg-white">
       <nav className="flex justify-between items-center sm:container mx-auto py-3 px-3 sm:px-0">
         {/* Header Left side */}
         <div className="flex items-center relative">

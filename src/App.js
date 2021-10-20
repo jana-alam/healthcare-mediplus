@@ -9,6 +9,8 @@ import Footer from "./Pages/Shared/Footer/Footer";
 import Header from "./Pages/Shared/Header/Header";
 import AuthProvider from "./context/AuthProvider";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import AboutUs from "./Pages/AboutUs/AboutUs/AboutUs";
+import AppointMent from "./Pages/AppointMent/AppointMent/AppointMent";
 
 function App() {
   return (
@@ -21,6 +23,12 @@ function App() {
           </Route>
           <Route path="/home">
             <Home></Home>
+          </Route>
+          <Route path="/about-us">
+            <AboutUs></AboutUs>
+          </Route>
+          <Route path="/appointment">
+            <AppointMent></AppointMent>
           </Route>
           <Route path="/login">
             <Login></Login>

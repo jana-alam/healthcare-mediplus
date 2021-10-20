@@ -1,15 +1,8 @@
-import React, { useEffect, useState } from "react";
+import useDoctors from "../../../hooks/useDoctors";
 import Doctor from "../Docotor/Doctor";
 
 const Teams = () => {
-  const [doctors, setDoctors] = useState([]);
-
-  useEffect(() => {
-    fetch("/doctors.json")
-      .then((res) => res.json())
-      .then((data) => setDoctors(data));
-  }, []);
-
+  const { doctors } = useDoctors();
   return (
     <div className="bg-gray-100">
       <div className="md:container mx-auto py-12 text-center ">

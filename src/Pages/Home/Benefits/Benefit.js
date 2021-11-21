@@ -8,7 +8,7 @@ const Benefit = () => {
       <div className="bg-red-400 text-white px-4 py-6">
         <h3 className="font-semibold text-2xl mb-3">24 Hour Support</h3>
         <p className="text-sm">
-          We provide 24 hour support to out patient. We have special team
+          We provide 24 hour support to out patient. We have special teams
           working shift wise to support our clients.
         </p>
       </div>
